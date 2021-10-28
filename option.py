@@ -13,13 +13,13 @@ parser.add_argument('--n_threads', type=int, default=4,
                     help='number of threads for data loading')
 parser.add_argument('--cpu', type=bool, default=False,
                     help='use cpu only')
-parser.add_argument('--n_GPUs', type=int, default=2,
+parser.add_argument('--n_GPUs', type=int, default=1,
                     help='number of GPUs')
 parser.add_argument('--seed', type=int, default=1,
                     help='random seed')
 
 # Data specifications
-parser.add_argument('--dir_data', type=str, default='D:/LongguangWang/Data',
+parser.add_argument('--dir_data', type=str, default='./dataset/X2',
                     help='dataset directory')
 parser.add_argument('--dir_demo', type=str, default='../test',
                     help='demo image directory')
@@ -31,7 +31,7 @@ parser.add_argument('--data_range', type=str, default='1-3450/801-810',
                     help='train/test data range')
 parser.add_argument('--ext', type=str, default='sep',
                     help='dataset file extension')
-parser.add_argument('--scale', type=str, default='4',
+parser.add_argument('--scale', type=str, default='2',
                     help='super resolution scale')
 parser.add_argument('--patch_size', type=int, default=48,
                     help='output patch size')
@@ -58,7 +58,7 @@ parser.add_argument('--sig_min', type=float, default=0.2,
                     help='minimum sigma of isotropic Gaussian blurs')
 parser.add_argument('--sig_max', type=float, default=4.0,
                     help='maximum sigma of isotropic Gaussian blurs')
-parser.add_argument('--sig', type=float, default=4.0,
+parser.add_argument('--sig', type=float, default=1.2,
                     help='specific sigma of isotropic Gaussian blurs')
 ## anisotropic Gaussian blur
 parser.add_argument('--lambda_min', type=float, default=0.2,
@@ -76,7 +76,7 @@ parser.add_argument('--theta', type=float, default=0.0,
 # Model specifications
 parser.add_argument('--model', default='blindsr',
                     help='model name')
-parser.add_argument('--pre_train', type=str, default= '.',
+parser.add_argument('--pre_train', type=str, default='.',
                     help='pre-trained model directory')
 parser.add_argument('--extend', type=str, default='.',
                     help='pre-trained model directory')
@@ -103,7 +103,7 @@ parser.add_argument('--split_batch', type=int, default=1,
                     help='split the batch into smaller chunks')
 parser.add_argument('--self_ensemble', action='store_true',
                     help='use self-ensemble method for test')
-parser.add_argument('--test_only', action='store_true',
+parser.add_argument('--test_only', action='store_true', default=True,
                     help='set this option to test the model')
 
 # Optimization specifications
@@ -148,7 +148,7 @@ parser.add_argument('--save', type=str, default='blindsr',
                     help='file name to save')
 parser.add_argument('--load', type=str, default='.',
                     help='file name to load')
-parser.add_argument('--resume', type=int, default=0,
+parser.add_argument('--resume', type=int, default=600,
                     help='resume from specific checkpoint')
 parser.add_argument('--save_models', action='store_true',
                     help='save all intermediate models')

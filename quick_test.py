@@ -12,7 +12,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--img_dir',
                         type=str,
-                        default='./dataset/X2/0003x2.png',
+                        default='./dataset/X2/0001x2.png',
                         help='image directory')
     parser.add_argument('--scale', type=str, default='2', help='super resolution scale')
     parser.add_argument('--resume', type=int, default=600, help='resume from specific checkpoint')
@@ -26,10 +26,10 @@ def parse_args():
 def main():
     args = parse_args()
     if args.blur_type == 'iso_gaussian':
-        dir = 'd:/CODE/DASRREPO/DASR/experiment/blindsr_x' + str(int(
+        dir = './experiment/blindsr_x' + str(int(
             args.scale[0])) + '_bicubic_iso'
     elif args.blur_type == 'aniso_gaussian':
-        dir = 'd:/CODE/DASRREPO/DASR/experiment/blindsr_x' + str(int(
+        dir = './experiment/blindsr_x' + str(int(
             args.scale[0])) + '_bicubic_aniso'
 
     # path to save sr images
